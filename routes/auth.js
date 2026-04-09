@@ -50,7 +50,8 @@ router.post('/google', async (req, res) => {
         lastActiveAt: new Date(),
       });
 
-      const token = jwt.sign({ userId: user.id, sessionId }, process.env.JWT_SECRET, { expiresIn: '7d' });
+      const secret = process.env.JWT_SECRET || 'spytee_jwt_secret_key_2024_ultra_secure';
+      const token = jwt.sign({ userId: user.id, sessionId }, secret, { expiresIn: '7d' });
       return res.json({
         token,
         user: {
@@ -78,7 +79,8 @@ router.post('/google', async (req, res) => {
         lastActiveAt: new Date(),
       });
 
-      const token = jwt.sign({ userId: user.id, sessionId }, process.env.JWT_SECRET, { expiresIn: '7d' });
+      const secret = process.env.JWT_SECRET || 'spytee_jwt_secret_key_2024_ultra_secure';
+      const token = jwt.sign({ userId: user.id, sessionId }, secret, { expiresIn: '7d' });
       return res.json({
         token,
         user: {

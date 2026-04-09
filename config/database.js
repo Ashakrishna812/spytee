@@ -5,8 +5,8 @@ const sequelize = new Sequelize(
   process.env.DB_USER || 'SPYTEE',
   process.env.DB_PASS || 'Lk8121@Lk8121',
   {
-    host: (!process.env.DB_HOST || process.env.DB_HOST === 'localhost' || process.env.DB_HOST === 'spyteetech.site') ? 'shareddb-b.hosting.stackcp.net' : process.env.DB_HOST,
-    port: process.env.DB_PORT || 3306,
+    host: (!process.env.DB_HOST || process.env.DB_HOST === 'localhost' || process.env.DB_HOST === 'spyteetech.site') ? 'mysql.gb.stackcp.com' : process.env.DB_HOST,
+    port: process.env.DB_PORT || 43078,
     dialect: 'mysql',
     logging: false,
     pool: {

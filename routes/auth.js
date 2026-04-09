@@ -20,7 +20,7 @@ router.post('/google', async (req, res) => {
     }
     const payload = await response.json();
 
-    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const clientId = process.env.GOOGLE_CLIENT_ID || '256737781083-o4qljlvg1iapp7dajcqb0ofr71h9668u.apps.googleusercontent.com';
     if (clientId !== 'YOUR_GOOGLE_CLIENT_ID_HERE' && payload.aud !== clientId) {
       return res.status(401).json({ message: 'Token not intended for this app' });
     }

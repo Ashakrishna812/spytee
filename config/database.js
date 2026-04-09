@@ -1,12 +1,12 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME || 'SPYTEE-35337b6e',
-  process.env.DB_USER || 'SPYTEE',
-  process.env.DB_PASS || 'Lk8121@Lk8121',
+  'SPYTEE-35337b6e',
+  'SPYTEE',
+  'Lk8121@Lk8121',
   {
-    host: (!process.env.DB_HOST || process.env.DB_HOST === 'localhost' || process.env.DB_HOST === 'spyteetech.site') ? 'mysql.gb.stackcp.com' : process.env.DB_HOST,
-    port: process.env.DB_PORT || 43078,
+    host: 'mysql.gb.stackcp.com',
+    port: 43078,
     dialect: 'mysql',
     logging: false,
     pool: {

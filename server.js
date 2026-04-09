@@ -53,8 +53,13 @@ app.use('/api/media', require('./routes/media'));
 app.use('/api/push', require('./routes/push'));
 
 // Health check
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'SPYTEE TECH API is running' });
+app.get('/api/health', async (req, res) => {
+  try {
+    await sequelize.authenticate();
+    res.json({ status: 'ok', message: 'SPYTEE TECH API is running', db: 'Connected!' });
+  } catch (err) {
+    res.json({ status: 'ok', message: 'SPYTEE TECH API is running', db_error: err.message, db_stack: err.stack });
+  }
 });
 
 const PORT = process.env.PORT || 3001;

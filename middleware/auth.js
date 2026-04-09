@@ -7,7 +7,8 @@ const auth = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: 'No token, authorization denied' });
     }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const secret = process.env.JWT_SECRET || 'spytee_jwt_secret_key_2024_ultra_secure';
+    const decoded = jwt.verify(token, secret);
     const user = await User.findByPk(decoded.userId);
     if (!user) {
       return res.status(401).json({ message: 'Token is not valid' });
